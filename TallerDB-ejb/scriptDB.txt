@@ -1,0 +1,16 @@
+CREATE TABLE Materia (
+materiaid varchar(20) NOT NULL PRIMARY KEY,
+nombremateria varchar(30),
+numerocreditos int,
+semestre int, 
+numAdmitidos int
+)
+
+CREATE TABLE INSCRIPCION(
+inscripcionid int NOT NULL PRIMARY KEY GENERATED
+    ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+estudianteid int,
+materiaid varchar(20),
+FOREIGN KEY (estudianteid) REFERENCES estudiante(estudianteid),
+FOREIGN KEY (materiaid) REFERENCES materia(materiaid)
+)
